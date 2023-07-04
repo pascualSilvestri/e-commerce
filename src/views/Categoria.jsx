@@ -1,13 +1,12 @@
-
+import ContenedorCategoria from '../component/grillaCategoria/ContenedorCategoria'
+import './style/Categoria.css'
 
 
 const Categoria = ()=>{
     return (
-        <>
-            <h1>
-                Soy Categoria
-            </h1>
-        </>
+        <div className="categoriaContendor">
+            <ContenedorCategoria/>
+        </div>
     )
 
 }
