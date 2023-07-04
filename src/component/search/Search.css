@@ -1,0 +1,32 @@
+.search_contenedor{
+    max-width: 500px;
+    width: 35%;
+    min-width: 200px;
+    height: 100%;
+    padding: .5rem;
+}
+
+.search_contenedor input{
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding-left: 1rem;
+    font-family: var(--parrafos);
+    background-color: var(--segundo);
+    
+}
+
+.search_contenedor input::placeholder{
+    font-weight: bold;
+    color: #a2a2a2a2;
+    
+}
+
+
+.search_contenedor input:focus{
+    background-color: var(--fondo);
+    outline: none;
+    color:var(--segundo);
+    font-weight: bold;
+}

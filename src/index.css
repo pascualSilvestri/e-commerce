@@ -1,0 +1,18 @@
+:root {
+    --fondo: #b3d3f3;
+    --titulo: fantasy;
+    --parrafos: sans-serif;
+    --segundo:#000000;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:var(--titulo);
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--fondo);
+}
