@@ -1,7 +1,7 @@
 
 
 
-const Login = ()=>{
+const Login = ({login})=>{
     return (
         <>
             <h1>

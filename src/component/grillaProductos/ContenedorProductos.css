@@ -1,0 +1,10 @@
+.botones_prodcutos{
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.botones_prodcutos button{
+    padding: 1rem;
+    margin: 0 1rem ;
+    box-shadow: 0 0 2px 4px #111;
+}

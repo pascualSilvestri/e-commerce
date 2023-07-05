@@ -11,7 +11,7 @@ const links = [
 const valido = true;
 
 
-const Header = ()=>{
+const Header = ({filtrar})=>{
     return(
 
         <div className="header_contenedor">
@@ -26,7 +26,7 @@ const Header = ()=>{
                     :(<h1>hola</h1> )
                 }
                 </ul>
-                <Search/>
+                <Search filtrar={filtrar}/>
                 
                 <ul className='header_ul_login'>
                 {

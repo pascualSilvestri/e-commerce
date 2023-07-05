@@ -1,11 +1,11 @@
 import ContenedorCategoria from '../component/grillaCategoria/ContenedorCategoria'
 import './style/Categoria.css'
 
+const Categoria = ({categorias})=>{
 
-const Categoria = ()=>{
     return (
         <div className="categoriaContendor">
-            <ContenedorCategoria/>
+            <ContenedorCategoria titulo={'Categorias'} elementos={categorias}/>
         </div>
     )
 

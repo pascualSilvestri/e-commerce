@@ -1,34 +1,18 @@
 import Card from '../card/Card'
 import './ContenedorCategoria.css'
-import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 
 
-const ContenedorCategoria =()=>{
-    const [card, setCard] = useState([]);
-
-    useEffect(() => {
-      fetchGetCard();
-    }, []);
-  
-    const fetchGetCard = async () => {
-      try {
-        const response = await fetch('https://api.escuelajs.co/api/v1/categories');
-        const data = await response.json();
-        setCard(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+const ContenedorCategoria =({titulo,elementos})=>{
 
     return (
     <div className='grilla_contenedor'>
-        <h2 className='Titulo Categoria'>Categoria</h2>
+        <h2 className='Titulo Categoria'>{titulo}</h2>
         <div className='categoria_card'>
             {
-                card ? card.map(c =>(
-                    <Link className='categorial_link' key={c.id} to={`categoria/${c.id}`}>
+                elementos ? elementos.map(c =>(
+                    <Link className='categorial_link' key={c.id} to={`${c.id}`}>
                     <Card 
                     key={c.id}
                     categoria={c.name}

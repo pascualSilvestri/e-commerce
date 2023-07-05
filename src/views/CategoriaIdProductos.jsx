@@ -1,19 +1,20 @@
-import { useParams } from "react-router-dom";
-import { useEffect,useState } from "react";
-import './style/Producto.css'
-import OneProduct from "../component/oneProduts/OneProduct";
+import { useParams } from 'react-router-dom'
+import './style/CategoriaIdProductos.css'
+import { useState,useEffect } from 'react';
+import OneProduct from '../component/oneProduts/OneProduct';
 
+const CategoriaIdProductos = () =>{
 
-const Producto = ()=>{
     const [card, setCard] = useState([]);
-    const {id} = useParams()
+    const {products} = useParams()
     useEffect(() => {
       fetchGetCard();
     }, []);
-  
+    
+    
     const fetchGetCard = async () => {
       try {
-        const response = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
+        const response = await fetch(`https://api.escuelajs.co/api/v1/products/${products}`);
         const data = await response.json();
         setCard(data);
       } catch (error) {
@@ -21,6 +22,7 @@ const Producto = ()=>{
       }
     };
 
+    
     return (
         <div className="contenedor_producto" >
             <OneProduct
@@ -32,8 +34,7 @@ const Producto = ()=>{
             />
         </div>
     )
-
 }
 
 
-export default Producto
+export default CategoriaIdProductos
