@@ -15,7 +15,8 @@
     justify-content: space-evenly;
     align-content: space-evenly;
     box-shadow: 0 0 2px 4px #111;
-    padding: .5rem
+    padding: .5rem;
+    overflow:scroll;
 }
 
 .img_one_products{
@@ -27,7 +28,7 @@
 }
 
 .img_one_products:active{
-    position: absolute;
+    position: fixed;
     top:10%;
     left:10%;
     width: 60%;

@@ -14,12 +14,20 @@ import NoFound from './views/NoFound'
 
 
 
+
 function App() {
 
   const [productos, setProductos] = useState([])
   const [categoria, setCategoria] = useState([])
+  const [isLogin, setIsLogin] = useState([])
   const [login, setLogin] = useState(false)
 
+  useEffect(()=>{
+    isLogeado();
+  },[isLogin])
+
+  console.log(isLogin)
+  
   useEffect(() => {
     fetchGetProductos();
   }, []);
@@ -27,6 +35,14 @@ function App() {
   useEffect(() => {
     fetchGetCategoria();
   }, []);
+
+  function isLogeado(){
+    const tokens = localStorage.getItem('access_token')
+    if(tokens != 0 ){
+      setLogin(true)
+    }
+    setIsLogin(tokens)
+  }
 
   function filtrarProducto(arg) {
     const filtrado = productos.filter(e => (
@@ -64,7 +80,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <Header filtrar={filtrarProducto}/>
+    <Header filtrar={filtrarProducto} login={login} setLogin={setLogin}/>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/categoria/' element={<Categoria categorias={categoria}/>} />
@@ -72,8 +88,8 @@ function App() {
         <Route path='/categoria/:id/:products' element={<CategoriaIdProductos/>} />
         <Route path='/productos' element={<Productos productos={productos}/>} />
         <Route path='/productos/:id' element={<Producto/>} />
-        <Route path='/login' element={<Login login={setLogin}/>} />
-        <Route path='/registro' element={<Registro/>}/>
+        <Route path='/login' element={<Login setLogin={setLogin} login={login}/>} />
+        <Route path='/registro' element={<Registro login={login}/>}/>
         <Route path='*' element={<NoFound/>}/>
       </Routes>
     </BrowserRouter>

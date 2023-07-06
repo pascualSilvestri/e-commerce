@@ -21,6 +21,7 @@ const Producto = ()=>{
       }
     };
 
+    console.log(card)
     return (
         <div className="contenedor_producto" >
             <OneProduct

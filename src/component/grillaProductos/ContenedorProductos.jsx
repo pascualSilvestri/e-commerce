@@ -25,7 +25,7 @@ const ContenedorProductos = ({ titulo, elementos }) => {
         {elementosActuales.length > 0 ? (
           <>
             {elementosActuales.map((c) => (
-              <Link className='categorial_link' key={c.id} to={`${c.id}`} as={<CardProductos/>}>
+              <Link className='categorial_link' key={c.id} to={`${c.id}`} >
                 <CardProductos img={c.images[0]} titulo={c.title} precio={c.price} />
               </Link>
             ))}

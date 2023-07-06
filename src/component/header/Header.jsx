@@ -1,6 +1,7 @@
 import Search from '../search/Search'
 import './Header.css'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+
 
 const links = [
     {'link': '/','label': 'Home'},
@@ -8,10 +9,15 @@ const links = [
     {'link': '/productos','label': 'Productos'},
 ]
 
-const valido = true;
 
 
-const Header = ({filtrar})=>{
+const Header = ({filtrar,login,setLogin})=>{
+
+    
+    function logout(){
+        setLogin(!login) 
+        localStorage.removeItem('access_token')
+    }
     return(
 
         <div className="header_contenedor">
@@ -30,10 +36,11 @@ const Header = ({filtrar})=>{
                 
                 <ul className='header_ul_login'>
                 {
-                    valido ? (<li className='header_li_login'>
+                    !login ? (<li className='header_li_login'>
                     <Link to='/login'>Login</Link>
+                    <Link to='/registro'>Registrar</Link>
                 </li>):( <li className='header_li_login'>
-                        <Link to='/registro'>Registrar</Link>
+                    <Link onClick={logout} to='/registro'>Loguot</Link>
                    </li>)
                 }
                     
