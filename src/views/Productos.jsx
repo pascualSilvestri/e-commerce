@@ -1,15 +1,15 @@
-import { useEffect,useState } from "react";
 import ContenedorProductos from "../component/grillaProductos/contenedorProductos";
 import '../views/style/Productos.css'
 
 
-const Productos = ({productos})=>{
-
+const Productos = ({productos,user})=>{
+    console.log(user)
     return (
         <div className="productos_contenedor">
             <ContenedorProductos
             titulo={'Produtos'}
-            elementos={productos}/>
+            elementos={productos}
+            />
         </div>
     )
 

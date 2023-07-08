@@ -1,0 +1,41 @@
+.detalle_compra_contenedor{
+    width: 100%;
+    min-height: 9   0vh;
+    padding: 2rem;
+    display: flex;    
+}
+
+.lista_compra{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    background-color: #e7e7e7;
+    box-shadow: 0 0 2px 4px #111;
+    padding: 1rem; 
+}
+
+.lista_compra h2{
+    margin: 1rem 0;
+}
+
+.header_lista_compra{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item_compra{
+    width: 100%;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.row_compra_item{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+

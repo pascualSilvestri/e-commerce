@@ -29,6 +29,8 @@
     align-items: center;
 }
 
-.input_retistro{
-   
+.form_registro button{
+    border:none;
+    box-shadow: 0 0 2px 4px #111;
+    padding: .5rem 1rem;
 }

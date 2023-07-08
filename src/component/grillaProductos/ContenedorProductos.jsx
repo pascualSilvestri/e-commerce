@@ -3,7 +3,7 @@ import CardProductos from '../card/CardProductos.jsx';
 import './ContenedorProductos.css';
 import { Link } from 'react-router-dom';
 
-const ContenedorProductos = ({ titulo, elementos }) => {
+const ContenedorProductos = ({ titulo, elementos}) => {
   const [pagina, setPagina] = useState(0);
 
   const mostrarSiguientes = () => {
@@ -15,6 +15,8 @@ const ContenedorProductos = ({ titulo, elementos }) => {
       setPagina(pagina - 1);
     }
   };
+
+
 
   const elementosActuales = elementos.slice(pagina * 10, (pagina + 1) * 10);
 

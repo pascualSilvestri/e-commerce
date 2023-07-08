@@ -1,17 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import './style/Registro.css'
 import { useNavigate} from 'react-router-dom'
 
-const Registro = (login)=>{
+const Registro = ({login})=>{
     const [email,setEmail] = useState('')
     const [name,setName] = useState('')
     const [password,setPassword] = useState('')
     const [img,setImg] = useState('')
     const navigate = useNavigate()
 
-    if(login){
-        navigate('/')
-    } 
+        if(login){
+            navigate('/')
+        } 
 
     const handleInputChange = (event) => {
         if (event.target.name === 'name') {
@@ -67,7 +67,7 @@ const Registro = (login)=>{
                     <input className="input_retistro" type="email" name="email" id="email" value={email}  onChange={handleInputChange} placeholder="Correo ejemplo@gmail.com"/>
                     <input className="input_retistro" type="password" name="password1" id="password1" value={password}  onChange={handleInputChange} placeholder="Contraseña"/>
                     <input className="input_retistro" type="password" name="password2" id="password2"  placeholder="Volver a ingresar contraseña"/>
-                    <input className="input_retistro" type="url" name="img" id="img" value={img} onChange={handleInputChange} placeholder=""/> 
+                    <input className="input_retistro" type="url" name="img" id="img" value={img} onChange={handleInputChange} placeholder="Url de la imagen"/> 
                 </div>
                 <button type="submit">Registrar</button>
             </form>

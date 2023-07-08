@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './style/Login.css'
 import { useNavigate} from 'react-router-dom'
 
-const Login = ({setLogin,login}) => {
+const Login = ({setLogin,login,getUser}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
 
-    if(login){
-        navigate('/')
-    } 
+    
+        if(login){
+            navigate('/')
+        } 
+
 
     const handleInputChange = (event) => {
         if (event.target.name === 'username') {
@@ -36,9 +38,11 @@ const Login = ({setLogin,login}) => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data)
+                const dato = []
+                dato.push(data)
                 setLogin(true)
-                localStorage.setItem("access_token", data);
+                localStorage.setItem("access_token",JSON.stringify(data));
+                getUser()
                 
             } else {
                 console.log('error jeje')

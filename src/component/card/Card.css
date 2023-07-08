@@ -13,6 +13,11 @@
 
 }
 
+.card:hover{
+    background-color: #111;
+    color: #e7e7e7;
+}
+
 .card span{
    font-weight: bold;
    text-transform: uppercase;
@@ -29,4 +34,9 @@
     height: 80%;
     object-fit: cover;
     margin-top: 1rem;
+}
+
+.card button{
+    width: 80%;
+    margin: .5rem 0;
 }

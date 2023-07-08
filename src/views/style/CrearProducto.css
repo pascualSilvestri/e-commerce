@@ -1,0 +1,53 @@
+.create_producto_contenedor{
+    width: 100%;
+    height: 90vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+    
+.form_create_producto{
+    width: 50%;
+    height: 100%;
+    background-color: #e7e7e7;
+    box-shadow: 0 0 2px 4px #111;  
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-b;
+}
+
+.form_create_producto h2{
+    margin-bottom: 1rem;
+}
+
+.contenedor_input_crear_producto{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.contenedor_input_crear_producto input{
+    height: 3rem;
+    background-color: #e7e7e7;
+    box-shadow: 0 0 2px 4px #111; 
+    border: none;
+    padding: 0 0 0 2rem;
+    outline: none;
+}
+
+.contenedor_input_crear_producto input:hover{
+    background-color: #111;
+   color:#e7e7e7;
+}
+.contenedor_input_crear_producto textarea{
+    background-color: #e7e7e7;
+    box-shadow: 0 0 2px 4px #111;  
+    outline: none; 
+}

@@ -1,23 +1,31 @@
+import { useEffect } from 'react'
 import Search from '../search/Search'
 import './Header.css'
 import { Link} from 'react-router-dom'
+import Carrito from '../carrito/Carrito'
 
 
 const links = [
     {'link': '/','label': 'Home'},
     {'link': '/categoria','label': 'Categoria'},
     {'link': '/productos','label': 'Productos'},
+    
 ]
 
 
-
-const Header = ({filtrar,login,setLogin})=>{
+const Header = ({filtrar,login,setLogin,setUser,user,getUser,compra})=>{
 
     
+    useEffect(()=>{
+        getUser()
+    },[])
+
     function logout(){
-        setLogin(!login) 
+        setLogin(false) 
+        setUser([])
         localStorage.removeItem('access_token')
     }
+    
     return(
 
         <div className="header_contenedor">
@@ -36,17 +44,21 @@ const Header = ({filtrar,login,setLogin})=>{
                 
                 <ul className='header_ul_login'>
                 {
-                    !login ? (<li className='header_li_login'>
+                    login ? ( <>
+                    {user.role === 'admin'? 
+                    <>
+                        <Link to='/admin'>Admin</Link>
+                        <Link onClick={logout} to='/'>Loguot</Link>
+                    </>
+                    :   <Link onClick={logout} to='/'>Loguot</Link>
+                    }    
+                   </>) :(<>
                     <Link to='/login'>Login</Link>
                     <Link to='/registro'>Registrar</Link>
-                </li>):( <li className='header_li_login'>
-                    <Link onClick={logout} to='/registro'>Loguot</Link>
-                   </li>)
+                </>)
                 }
-                    
-                  
-                    
                 </ul>
+                <Carrito compra={compra}/>
             </nav>
         </div>
 

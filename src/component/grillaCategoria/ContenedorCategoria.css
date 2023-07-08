@@ -23,7 +23,18 @@
         height: 100%;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 1rem;
         padding: 1rem;
         justify-content: space-evenly;
     }
+
+    .card_contenedor button{
+        width: 100%;
+        margin: .5rem 0;
+        height: 2rem;
+        background-color: #e7e7e7;
+        box-shadow: 0 0 2px 4px #111;
+    }
+
+    
+
+   

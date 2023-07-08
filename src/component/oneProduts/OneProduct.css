@@ -53,3 +53,16 @@
 .precio_one_products{
     font-size: 3rem;
 }
+
+.btn_one_product{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn_one_product button{
+    width: 40%;
+    height: 30px;
+    background-color: #e7e7e7;
+    box-shadow: 0 0 2px 4px #111;
+}
