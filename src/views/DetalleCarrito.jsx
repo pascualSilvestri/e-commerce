@@ -2,19 +2,18 @@ import './style/DetalleCarrito.css'
 import { useCompra } from '../context/CompraContext'
 import { useEffect, useState } from 'react'
 import { BsFillTrash3Fill } from "react-icons/bs";
-
+import { useNavigate } from 'react-router';
 
 const DetalleCarrito = ()=>{
     const [compra,setCompra] = useCompra()
     const [total, setTotal] = useState(0)
+    const navegate = useNavigate()
 
     useEffect(()=>{
         pagar()
     },[compra])
 
     
-
-
     function handleMas(e){
         let masCantidad = compra.map(item=>{
             if(item.id == e.target.id){
@@ -59,6 +58,9 @@ const DetalleCarrito = ()=>{
         setTotal(t)
     }
     
+    function compraFinalizada(){
+        navegate('/comprafinalizada')
+    }
 
     return (
         <div className="detalle_compra_contenedor">
@@ -91,7 +93,7 @@ const DetalleCarrito = ()=>{
             <div className="realizar_pago">
                 <h2>Total a Paga</h2>
                 <p>{total}</p>
-                <button onClick={()=>console.log('pagar')}>Realizar Pago</button>
+                <button onClick={compraFinalizada}>Realizar Pago</button>
             </div>
             
         </div>

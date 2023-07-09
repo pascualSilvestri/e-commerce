@@ -9,7 +9,7 @@ const Login = ({setLogin,login,getUser}) => {
 
     
         if(login){
-            navigate('/')
+            navigate('/e-commerce')
         } 
 
 

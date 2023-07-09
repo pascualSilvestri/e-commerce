@@ -41,10 +41,12 @@ const Header = ({filtrar,login,setLogin,setUser,user,getUser})=>{
 
     
     function logout(){
-        setLogin(false) 
-        setUser([])
         localStorage.removeItem('access_token')
         localStorage.removeItem('compra')
+        setCompra([])
+        setLogin(false) 
+        setUser([])
+
     }
 
     
@@ -73,9 +75,9 @@ const Header = ({filtrar,login,setLogin,setUser,user,getUser})=>{
                     {user.role === 'admin'? 
                     <>
                         <Link to='/admin'>Admin</Link>
-                        <Link onClick={logout} to='/'>Loguot</Link>
+                        <Link onClick={logout} to='/e-commerce'>Loguot</Link>
                     </>
-                    :   <Link onClick={logout} to='/'>Loguot</Link>
+                    :   <Link onClick={logout} to='/e-commerce'>Loguot</Link>
                     }    
                    </>) :(<>
                     <Link to='/login'>Login</Link>
