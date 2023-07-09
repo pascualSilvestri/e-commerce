@@ -10,7 +10,6 @@ const Carrito = () =>{
     const [compra, setCompra] = useCompra()
 
     
-    console.log(compra)
     const [total, setTotal] = useState(0.0)
 
     useEffect(()=>{
@@ -23,8 +22,6 @@ const Carrito = () =>{
         setTotal(total)
     }
     
-    
-    console.log(total)
 
 
     return(
@@ -35,7 +32,7 @@ const Carrito = () =>{
                 <BsCart4/>
             </div>
             <div className="total">
-                {total}
+                {compra.length}
             </div>
             </Link>
         </div>

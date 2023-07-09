@@ -3,28 +3,53 @@ import Search from '../search/Search'
 import './Header.css'
 import { Link} from 'react-router-dom'
 import Carrito from '../carrito/Carrito'
+import { useCompra } from '../../context/CompraContext'
+import { useGuardadoContext } from '../../context/GuardadoContext'
 
 
 const links = [
-    {'link': '/','label': 'Home'},
+    {'link': '/e-commerce','label': 'Home'},
     {'link': '/categoria','label': 'Categoria'},
     {'link': '/productos','label': 'Productos'},
     
 ]
 
 
-const Header = ({filtrar,login,setLogin,setUser,user,getUser,compra})=>{
+const Header = ({filtrar,login,setLogin,setUser,user,getUser})=>{
 
+    const [compra,setCompra] = useCompra()
+    const [guardado, setGuardado] = useGuardadoContext()
     
     useEffect(()=>{
         getUser()
     },[])
 
+    useEffect(() => {
+        let local = localStorage.getItem('compra');
+    
+        if (!guardado && local) {
+          setCompra(JSON.parse(local));
+          setGuardado(true);
+        }
+      }, [guardado]);
+
+      useEffect(() => {
+        if (guardado) {
+          localStorage.setItem('compra', JSON.stringify(compra));
+        }
+      }, [compra, guardado]);
+
+    
     function logout(){
         setLogin(false) 
         setUser([])
         localStorage.removeItem('access_token')
+        localStorage.removeItem('compra')
     }
+
+    
+
+
     
     return(
 

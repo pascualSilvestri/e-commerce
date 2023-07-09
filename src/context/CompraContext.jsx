@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 
 export const compraContext = createContext();
@@ -16,6 +16,7 @@ export function useAddCompraContext (){
 export const CompraProvider = ({ children }) => {
 
   const [compra, setCompra] = useState([]);
+
 
 
   const addCompra = (id, title, valor, cantidad) => {
