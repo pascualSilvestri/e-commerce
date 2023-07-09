@@ -12,29 +12,26 @@ import CrearProducto from './views/CrearProducto'
 import EditarProducto from './views/EditarProducto'
 import CrearCategoria from './views/CrearCategoria'
 import DetalleCarrito from './views/DetalleCarrito'
-import { useState,useEffect } from 'react'
 import CategoriaIdProductos from './views/CategoriaIdProductos'
 import NoFound from './views/NoFound'
 import Admin from './views/Admin'
+import CompraFinalizada from './views/CompraFinalizada'
+import { useState,useEffect } from 'react'
 import { CompraProvider } from './context/CompraContext'
 import { ProductoProvider } from './context/ProductosContext'
 import { SearchProvide } from './context/SearchContext'
 import { CategoriaProvide } from './context/CategoriaContext'
 import { GuardarProvide } from './context/GuardadoContext'
 
-function App() {
 
-  // const [productos, setProductos] = useState()
+function App() {
   
   const [user,setUser] = useState([])
   const [login, setLogin] = useState(false)
 
-
   useEffect(()=>{
     isLogeado();
   },[])
-  
-  
 
   async function getUser() {
     const tokenLocal = localStorage.getItem('access_token');
@@ -87,6 +84,7 @@ function App() {
         <Route path='/editarproducto' element={<EditarProducto /*productos={productos}*//>} />
         <Route path='/crearcategoria' element={<CrearCategoria />} />
         <Route path='/detallecompra' element={<DetalleCarrito  />} />
+        <Route path='/comprafinalizada' element={<CompraFinalizada/>} />
         <Route path='*' element={<NoFound/>}/>
       </Routes>
     </BrowserRouter>

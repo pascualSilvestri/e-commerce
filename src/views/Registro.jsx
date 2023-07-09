@@ -10,7 +10,7 @@ const Registro = ({login})=>{
     const navigate = useNavigate()
 
         if(login){
-            navigate('/')
+            navigate('/e-commerce')
         } 
 
     const handleInputChange = (event) => {
