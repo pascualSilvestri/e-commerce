@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import './style/Registro.css'
 import { useNavigate} from 'react-router-dom'
 
@@ -49,6 +49,7 @@ const Registro = ({login})=>{
             if (response.ok) {
                 const data = await response.json();
                 console.log(data)
+                navigate('/e-commerce')
             } else {
                 const data = await response.json()
                 console.log(data)
