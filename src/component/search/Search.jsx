@@ -1,21 +1,17 @@
 import './Search.css'
-import { useState } from 'react';
+import { useSearchContext } from '../../context/SearchContext';
 
-const Search = ({ filtrar }) => {
-    const [searchValue, setSearchValue] = useState('');
+const Search = () => {
+    const [,setSearch] = useSearchContext()
   
     const handleInputChange = (e) => {
-      setSearchValue(e.target.value);
+      setSearch(e.target.value);
     };
-  
-    const handleSearch = () => {
-      filtrar(searchValue);
 
-    };
   
     return (
       <div className="search_contenedor">
-        <input className='input_search' type="text" placeholder="Buscar" onChange={handleInputChange} onBlur={handleSearch}/>
+        <input className='input_search' type="text" placeholder="Buscar" onChange={handleInputChange} />
         {/* <button onClick={handleSearch}>Buscar</button> */}
       </div>
     );

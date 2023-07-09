@@ -3,7 +3,7 @@ import './style/CategoriaIdProductos.css';
 import { useState, useEffect } from 'react';
 import OneProduct from '../component/oneProduts/OneProduct';
 
-const CategoriaIdProductos = ({ addCompra, user }) => {
+const CategoriaIdProductos = ({ user }) => {
   const [card, setCard] = useState({
     id: '',
     titulo: '',
@@ -29,7 +29,7 @@ const CategoriaIdProductos = ({ addCompra, user }) => {
 
   return (
     <div className="contenedor_producto">
-      <OneProduct card={card} addCompra={addCompra} user={user} />
+      <OneProduct card={card} user={user} />
     </div>
   );
 };

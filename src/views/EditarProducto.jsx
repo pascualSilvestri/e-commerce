@@ -1,8 +1,10 @@
 import { useState } from "react"
 import './style/EditarProducto.css'
+import { useProductoContext } from "../context/ProductosContext"
 
 
-const EditarProducto = ({productos})=>{
+const EditarProducto = ()=>{
+    const [productos] = useProductoContext()
     
     const [prod, setProd] = useState([])
     const [produts, setProduts] = useState([])

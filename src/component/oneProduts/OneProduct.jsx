@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import Eliminar from '../eliminarProducto/Eliminar'
 import './OneProduct.css'
+import { useAddCompraContext } from '../../context/CompraContext'
 
 
 
-const OneProduct = ({ card, addCompra, user }) => {
+
+const OneProduct = ({ card, user }) => {
+
+    const addCompra = useAddCompraContext()
 
     const [cantidad, setCantidad] = useState(1)
-    let valor = 0
 
 
     const masCantidad = () => {
@@ -22,10 +25,7 @@ const OneProduct = ({ card, addCompra, user }) => {
 
 
     const sumarCarrito = () => {
-        valor = card.price * cantidad
-        if (isNaN()) {
-            addCompra(card.id, card.title, valor, cantidad)
-        }
+            addCompra(card.id, card.title, card.price, cantidad)
 
     }
 

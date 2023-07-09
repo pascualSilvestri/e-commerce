@@ -2,9 +2,14 @@ import { Link } from 'react-router-dom';
 import './Carrito.css'
 import { BsCart4 } from "react-icons/bs";
 import { useEffect, useState } from 'react';
+import { useCompra } from '../../context/CompraContext';
 
 
-const Carrito = ({compra}) =>{
+const Carrito = () =>{
+
+    const [compra, setCompra] = useCompra()
+
+    
     console.log(compra)
     const [total, setTotal] = useState(0.0)
 

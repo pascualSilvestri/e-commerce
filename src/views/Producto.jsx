@@ -4,7 +4,7 @@ import './style/Producto.css'
 import OneProduct from "../component/oneProduts/OneProduct";
 
 
-const Producto = ({addCompra,user})=>{
+const Producto = ({user})=>{
     const [card, setCard] = useState([]);
     const {id} = useParams()
     useEffect(() => {
@@ -26,7 +26,6 @@ const Producto = ({addCompra,user})=>{
         <div className="contenedor_producto" >
             <OneProduct
             card={card}
-            addCompra={addCompra}
             user={user}
             />
         </div>

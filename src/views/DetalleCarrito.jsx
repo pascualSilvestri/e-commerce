@@ -1,8 +1,10 @@
 import './style/DetalleCarrito.css'
+import { useCompra } from '../context/CompraContext'
 
 
-const DetalleCarrito = ({compra,setCompra})=>{
-
+const DetalleCarrito = ()=>{
+    const [compra] = useCompra()
+    
     console.log(compra)
     return (
         <div className="detalle_compra_contenedor">
