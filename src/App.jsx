@@ -20,6 +20,7 @@ import { CompraProvider } from './context/CompraContext'
 import { ProductoProvider } from './context/ProductosContext'
 import { SearchProvide } from './context/SearchContext'
 import { CategoriaProvide } from './context/CategoriaContext'
+import { GuardarProvide } from './context/GuardadoContext'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
   useEffect(()=>{
     isLogeado();
   },[])
+  
   
 
   async function getUser() {
@@ -57,6 +59,7 @@ function App() {
 
   return (
     <>
+    <GuardarProvide>
     <SearchProvide>
     <CategoriaProvide>
     <ProductoProvider>
@@ -71,7 +74,7 @@ function App() {
     getUser={getUser}
     />
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/e-commerce/' element={<Home/>} />
         <Route path='/categoria/' element={<Categoria  user={user}/>} />
         <Route path='/categoria/:id' element={<CategoriaId/>} />
         <Route path='/categoria/:id/:products' element={<CategoriaIdProductos  user={user} />} />
@@ -91,6 +94,7 @@ function App() {
     </ProductoProvider>
     </CategoriaProvide>
     </SearchProvide>
+    </GuardarProvide>
 
     </>
   )

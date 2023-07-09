@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Eliminar from '../eliminarProducto/Eliminar'
 import './OneProduct.css'
 import { useAddCompraContext } from '../../context/CompraContext'
+import { useGuardadoContext } from '../../context/GuardadoContext'
 
 
 
@@ -11,6 +12,7 @@ const OneProduct = ({ card, user }) => {
     const addCompra = useAddCompraContext()
 
     const [cantidad, setCantidad] = useState(1)
+    const [,setGuardado] = useGuardadoContext()
 
 
     const masCantidad = () => {
@@ -26,6 +28,7 @@ const OneProduct = ({ card, user }) => {
 
     const sumarCarrito = () => {
             addCompra(card.id, card.title, card.price, cantidad)
+            setGuardado(true)
 
     }
 
