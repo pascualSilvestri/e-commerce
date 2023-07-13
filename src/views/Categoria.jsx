@@ -3,12 +3,13 @@ import './style/Categoria.css'
 import { useEffect } from 'react';
 import { useCategoriaContex } from '../context/CategoriaContext';
 import { useSearchContext } from '../context/SearchContext';
+import { useUserContext } from '../context/UserContext';
 
-
-const Categoria = ({user})=>{
+const Categoria = ()=>{
 
     const [categorias,setCategoria] = useCategoriaContex()
     const [search] = useSearchContext()
+    const [user] = useUserContext()
 
     useEffect(() => {
         fetchGetCategoria();
