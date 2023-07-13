@@ -2,11 +2,15 @@ import { useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
 import './style/Producto.css'
 import OneProduct from "../component/oneProduts/OneProduct";
+import { useUserContext } from "../context/UserContext";
 
-
-const Producto = ({user})=>{
+const Producto = ()=>{
     const [card, setCard] = useState([]);
     const {id} = useParams()
+    const [user] = useUserContext()
+
+
+
     useEffect(() => {
       fetchGetCard();
     }, []);

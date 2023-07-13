@@ -1,10 +1,6 @@
 import foto from '../assets/mifoto.jpg'
 import './style/Home.css'
 import { useNavigate } from 'react-router'
-import {useCompra} from '../context/CompraContext'
-
-
-
 
 
 

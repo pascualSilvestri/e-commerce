@@ -5,7 +5,7 @@ import { Link} from 'react-router-dom'
 import Carrito from '../carrito/Carrito'
 import { useCompra } from '../../context/CompraContext'
 import { useGuardadoContext } from '../../context/GuardadoContext'
-
+import { useUserContext, useGetUserContext } from '../../context/UserContext'
 
 const links = [
     {'link': '/e-commerce','label': 'Home'},
@@ -15,10 +15,13 @@ const links = [
 ]
 
 
-const Header = ({filtrar,login,setLogin,setUser,user,getUser})=>{
+const Header = ({filtrar,login,setLogin})=>{
 
+    const [user,setUser] = useUserContext()
     const [compra,setCompra] = useCompra()
     const [guardado, setGuardado] = useGuardadoContext()
+
+    const getUser = useGetUserContext()
     
     useEffect(()=>{
         getUser()
@@ -48,10 +51,6 @@ const Header = ({filtrar,login,setLogin,setUser,user,getUser})=>{
         setUser([])
 
     }
-
-    
-
-
     
     return(
 

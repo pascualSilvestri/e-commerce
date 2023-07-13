@@ -22,29 +22,30 @@ import { ProductoProvider } from './context/ProductosContext'
 import { SearchProvide } from './context/SearchContext'
 import { CategoriaProvide } from './context/CategoriaContext'
 import { GuardarProvide } from './context/GuardadoContext'
+import { UserProvider } from './context/UserContext'
 
 
 function App() {
   
-  const [user,setUser] = useState([])
+  // const [user,setUser] = useState([])
   const [login, setLogin] = useState(false)
 
   useEffect(()=>{
     isLogeado();
   },[])
 
-  async function getUser() {
-    const tokenLocal = localStorage.getItem('access_token');
-    const token = JSON.parse(tokenLocal);
-    const header = {
-      Authorization: `Bearer ${token.access_token}`
-    };
-    const response = await fetch('https://api.escuelajs.co/api/v1/auth/profile', {
-      headers: header
-    });
-    const data = await response.json();
-    setUser(data);
-  }
+  // async function getUser() {
+  //   const tokenLocal = localStorage.getItem('access_token');
+  //   const token = JSON.parse(tokenLocal);
+  //   const header = {
+  //     Authorization: `Bearer ${token.access_token}`
+  //   };
+  //   const response = await fetch('https://api.escuelajs.co/api/v1/auth/profile', {
+  //     headers: header
+  //   });
+  //   const data = await response.json();
+  //   setUser(data);
+  // }
   
   function isLogeado(){
     const tokens = localStorage.getItem('access_token')
@@ -56,6 +57,7 @@ function App() {
 
   return (
     <>
+    <UserProvider>
     <GuardarProvide>
     <SearchProvide>
     <CategoriaProvide>
@@ -63,23 +65,19 @@ function App() {
     <CompraProvider>
     <BrowserRouter>
     <Header 
-    // filtrar={filtrarProducto} 
     login={login} 
     setLogin={setLogin} 
-    setUser={setUser} 
-    user={user} 
-    getUser={getUser}
     />
       <Routes>
         <Route path='/e-commerce/' element={<Home/>} />
-        <Route path='/categoria/' element={<Categoria  user={user}/>} />
+        <Route path='/categoria/' element={<Categoria />} />
         <Route path='/categoria/:id' element={<CategoriaId/>} />
-        <Route path='/categoria/:id/:products' element={<CategoriaIdProductos  user={user} />} />
-        <Route path='/productos' element={<Productos user={user}  />} />
-        <Route path='/productos/:id' element={<Producto  user={user}/>} />
-        <Route path='/login' element={<Login setLogin={setLogin} login={login} getUser={getUser} />} />
+        <Route path='/categoria/:id/:products' element={<CategoriaIdProductos />} />
+        <Route path='/productos' element={<Productos />} />
+        <Route path='/productos/:id' element={<Producto />} />
+        <Route path='/login' element={<Login setLogin={setLogin} login={login}  />} />
         <Route path='/registro' element={<Registro login={login}/>}/>
-        <Route path='/admin' element={<Admin user={user}/>} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='/crearproducto' element={<CrearProducto />} />
         <Route path='/editarproducto' element={<EditarProducto /*productos={productos}*//>} />
         <Route path='/crearcategoria' element={<CrearCategoria />} />
@@ -93,7 +91,7 @@ function App() {
     </CategoriaProvide>
     </SearchProvide>
     </GuardarProvide>
-
+    </UserProvider>
     </>
   )
 }

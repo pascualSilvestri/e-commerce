@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useProductoContext } from "../context/ProductosContext";
 import { useSearchContext } from "../context/SearchContext";
 
+
 const Productos = ()=>{
     const [search] = useSearchContext()
     const [productos,setProductos] = useProductoContext()

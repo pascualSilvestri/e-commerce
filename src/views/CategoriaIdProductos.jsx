@@ -2,8 +2,12 @@ import { useParams } from 'react-router-dom';
 import './style/CategoriaIdProductos.css';
 import { useState, useEffect } from 'react';
 import OneProduct from '../component/oneProduts/OneProduct';
+import { useUserContext } from '../context/UserContext';
 
-const CategoriaIdProductos = ({ user }) => {
+const CategoriaIdProductos = () => {
+
+  const [user] = useUserContext()
+
   const [card, setCard] = useState({
     id: '',
     titulo: '',
